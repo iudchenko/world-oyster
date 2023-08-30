@@ -1,11 +1,14 @@
 import { NavLink } from "react-router-dom";
 import styles from "./PageNav.module.css";
 import Logo from "./Logo";
+import Button from "../components/Button";
 import DarkModeToggle from "./DarkModeToggle";
 import { useDark } from "../contexts/DarkModeContext";
+import { useAuth } from "../contexts/AuthContext";
 
 function PageNav() {
   const { darkMode, toggleDarkMode } = useDark();
+  const { isAuthenticated, signOut } = useAuth();
 
   return (
     <nav className={styles.nav}>
@@ -18,9 +21,15 @@ function PageNav() {
           <NavLink to="/product">Product</NavLink>
         </li>
         <li>
-          <NavLink to="/login" className={styles.ctaLink}>
-            Login
-          </NavLink>
+          {isAuthenticated ? (
+            <Button type="primary" onClick={signOut}>
+              Logout
+            </Button>
+          ) : (
+            <NavLink to="/login" className={styles.ctaLink}>
+              Login
+            </NavLink>
+          )}
         </li>
         <li>
           <DarkModeToggle enabled={darkMode} onToggle={toggleDarkMode} />

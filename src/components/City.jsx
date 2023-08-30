@@ -24,10 +24,6 @@ function City() {
     [id, getCity]
   );
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
-
   const { cityName, emoji, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;

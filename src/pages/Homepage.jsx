@@ -8,16 +8,16 @@ export default function Homepage() {
       <PageNav />
       <section>
         <h1>
-          You travel the world.
+          The world is your oyster.
           <br />
-          World Oyster keeps track of your adventures.
+          Keep track of your adventures.
         </h1>
         <h2>
-          A world map that tracks your footsteps into every city you can think
-          of. Never forget your wonderful experiences, and show your friends how
-          you have wandered the world.
+          A global map that traces your journey to countless cities. Always
+          remember your amazing adventures and display to your companions the
+          extent of your global exploration.
         </h2>
-        <Link to="/login" className="cta">
+        <Link to="/app" className="cta">
           Start tracking now
         </Link>
       </section>

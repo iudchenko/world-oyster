@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { CitiesProvider } from "./contexts/CitiesContext";
-import { AuthProvider } from "./contexts/FakeAuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
 import CityList from "./components/CityList";

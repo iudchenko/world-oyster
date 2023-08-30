@@ -85,16 +85,76 @@
       "id": 98443206
     },
     {
-      "cityName": "Terzaga",
+      "cityName": "Sonseca",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2023-08-29T13:37:48.258Z",
+      "date": "2023-08-30T14:42:19.092Z",
       "notes": "",
       "position": {
-        "lat": "40.697299008636755",
-        "lng": "-1.8896484375000002"
+        "lat": "39.65645604812829",
+        "lng": "-3.9770507812500004"
       },
-      "id": 98443207
+      "id": 98443208
+    },
+    {
+      "cityName": "Avila",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-30T15:55:33.204Z",
+      "notes": "",
+      "position": {
+        "lat": "40.68063802521456",
+        "lng": "-4.460449218750001"
+      },
+      "id": 98443210
+    },
+    {
+      "cityName": "Petra",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-30T15:55:41.419Z",
+      "notes": "sdfsdf",
+      "position": {
+        "lat": "39.62261494094297",
+        "lng": "3.1420898437500004"
+      },
+      "id": 98443211
+    },
+    {
+      "cityName": "Ejea de los Caballeros",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-30T17:54:54.173Z",
+      "notes": "sdfsd",
+      "position": {
+        "lat": "42.19596877629178",
+        "lng": "-1.1425781250000002"
+      },
+      "id": 98443212
+    },
+    {
+      "cityName": "Alfaro",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-30T18:31:18.813Z",
+      "notes": "",
+      "position": {
+        "lat": "42.16340342422403",
+        "lng": "-1.77978515625"
+      },
+      "id": 98443213
+    },
+    {
+      "cityName": "Monteagudo de las Vicarias",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-30T18:32:39.181Z",
+      "notes": "",
+      "position": {
+        "lat": "41.32732632036624",
+        "lng": "-2.1752929687500004"
+      },
+      "id": 98443214
     }
   ]
 }

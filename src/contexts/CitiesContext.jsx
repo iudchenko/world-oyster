@@ -6,7 +6,12 @@ import {
   useCallback,
 } from "react";
 
-const BASE_URL = "http://localhost:8000";
+import {
+  deleteCityRow,
+  fetchCity,
+  getCities,
+  insertCityRow,
+} from "../utils/citiesUtils";
 
 const CitiesContext = createContext();
 
@@ -57,28 +62,27 @@ function CitiesProvider({ children }) {
     reducer,
     initialState
   );
-  // const [cities, setCities] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [currentCity, setCurrentCity] = useState({});
 
   useEffect(function () {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        // setIsLoading(true);
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        dispatch({ type: "cities/loaded", payload: data });
-        // setCities(data);
+        let { cities, error } = await getCities();
+
+        if (!error) {
+          dispatch({
+            type: "cities/loaded",
+            payload: cities,
+          });
+        }
       } catch {
         dispatch({
           type: "rejected",
           payload: "There was an error loading the cities",
         });
-        // alert("There was an error loading data");
       }
     }
-    // fetchCities();
+    fetchCities();
   }, []);
 
   const getCity = useCallback(
@@ -87,9 +91,9 @@ function CitiesProvider({ children }) {
 
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await res.json();
-        dispatch({ type: "city/loaded", payload: data });
+        const { city } = await fetchCity(id);
+
+        dispatch({ type: "city/loaded", payload: city.at(0) });
       } catch (error) {
         dispatch({
           type: "rejected",
@@ -103,18 +107,14 @@ function CitiesProvider({ children }) {
   async function createCity(newCity) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await res.json();
+      const { data, error } = await insertCityRow(newCity);
 
-      // setCities((cities) => [...cities, data]);
-      dispatch({
-        type: "city/created",
-        payload: data,
-      });
+      if (!error) {
+        dispatch({
+          type: "city/created",
+          payload: data.at(0),
+        });
+      }
     } catch (error) {
       dispatch({
         type: "rejected",
@@ -126,14 +126,14 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "DELETE",
-      });
-      // setCities((cities) => cities.filter((city) => city.id !== id));
-      dispatch({
-        type: "city/deleted",
-        payload: id,
-      });
+      const { error } = deleteCityRow(id);
+
+      if (!error) {
+        dispatch({
+          type: "city/deleted",
+          payload: id,
+        });
+      }
     } catch (error) {
       dispatch({
         type: "rejected",

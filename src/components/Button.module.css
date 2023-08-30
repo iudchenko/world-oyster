@@ -1,5 +1,5 @@
 .btn {
-  /* color: inherit; */
+  color: inherit;
   text-transform: uppercase;
   padding: 0.8rem 1.6rem;
   font-family: inherit;
@@ -7,6 +7,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+:global(.dark) .btn {
+  color: #fff;
 }
 
 .primary {
