@@ -1,0 +1,100 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": 73930385
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-07-29T07:17:00.304Z",
+      "notes": "",
+      "position": {
+        "lat": "40.413496049701955",
+        "lng": "-3.7353515625000004"
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-07-29T07:17:10.831Z",
+      "notes": "",
+      "position": {
+        "lat": "52.46939684276205",
+        "lng": "13.491210937500002"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Peyrelevade",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-07-29T07:33:04.726Z",
+      "notes": "",
+      "position": {
+        "lat": "45.66012730272194",
+        "lng": "2.0654296875000004"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "Brie",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-07-29T07:34:32.554Z",
+      "notes": "",
+      "position": {
+        "lat": "49.596470070892686",
+        "lng": "3.4716796875000004"
+      },
+      "id": 98443204
+    },
+    {
+      "cityName": "Calberlah",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-07-31T11:26:48.004Z",
+      "notes": "",
+      "position": {
+        "lat": "52.38901106223458",
+        "lng": "10.656738281250002"
+      },
+      "id": 98443205
+    },
+    {
+      "cityName": "Calamocha",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-28T18:54:31.857Z",
+      "notes": "",
+      "position": {
+        "lat": "40.94671366508002",
+        "lng": "-1.1425781250000002"
+      },
+      "id": 98443206
+    },
+    {
+      "cityName": "Terzaga",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-08-29T13:37:48.258Z",
+      "notes": "",
+      "position": {
+        "lat": "40.697299008636755",
+        "lng": "-1.8896484375000002"
+      },
+      "id": 98443207
+    }
+  ]
+}

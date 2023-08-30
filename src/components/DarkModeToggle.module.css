@@ -1,0 +1,13 @@
+.btnDark {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
