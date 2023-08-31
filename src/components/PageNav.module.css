@@ -45,3 +45,17 @@ a.ctaLink:visited {
 :global(.dark) a.ctaLink:visited {
   color: #fff;
 }
+
+@media only screen and (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .nav ul {
+    gap: 2rem;
+  }
+  .nav a:link,
+  .nav a:visited {
+    font-size: 1.4rem;
+  }
+}
