@@ -8,11 +8,21 @@ import { useAuth } from "../contexts/AuthContext";
 
 import PageNav from "../components/PageNav";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Login() {
   const { isAuthenticated } = useAuth();
 
   const navigate = useNavigate();
+
+  useEffect(
+    function () {
+      if (isAuthenticated) {
+        navigate("/app");
+      }
+    },
+    [isAuthenticated, navigate]
+  );
 
   if (!isAuthenticated) {
     return (
@@ -42,6 +52,4 @@ export default function Login() {
       </main>
     );
   }
-
-  navigate("/app");
 }

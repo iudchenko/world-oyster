@@ -12,6 +12,7 @@ import {
   getCities,
   insertCityRow,
 } from "../utils/citiesUtils";
+import { useAuth } from "./AuthContext";
 
 const CitiesContext = createContext();
 
@@ -52,38 +53,47 @@ function reducer(state, action) {
     case "rejected":
       return { ...state, isLoading: false, error: action.payload };
 
+    case "reset":
+      return initialState;
+
     default:
       throw new Error("Unknown action type");
   }
 }
 
 function CitiesProvider({ children }) {
+  const { isAuthenticated } = useAuth();
   const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
-  useEffect(function () {
-    async function fetchCities() {
-      dispatch({ type: "loading" });
-      try {
-        let { cities, error } = await getCities();
+  useEffect(
+    function () {
+      if (isAuthenticated) {
+        async function fetchCities() {
+          dispatch({ type: "loading" });
+          try {
+            let { cities, error } = await getCities();
 
-        if (!error) {
-          dispatch({
-            type: "cities/loaded",
-            payload: cities,
-          });
+            if (!error) {
+              dispatch({
+                type: "cities/loaded",
+                payload: cities,
+              });
+            }
+          } catch {
+            dispatch({
+              type: "rejected",
+              payload: "There was an error loading the cities",
+            });
+          }
         }
-      } catch {
-        dispatch({
-          type: "rejected",
-          payload: "There was an error loading the cities",
-        });
+        fetchCities();
       }
-    }
-    fetchCities();
-  }, []);
+    },
+    [isAuthenticated]
+  );
 
   const getCity = useCallback(
     async function getCity(id) {
@@ -126,7 +136,7 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      const { error } = deleteCityRow(id);
+      const { error } = await deleteCityRow(id);
 
       if (!error) {
         dispatch({
@@ -142,6 +152,10 @@ function CitiesProvider({ children }) {
     }
   }
 
+  async function resetCities() {
+    dispatch({ type: "reset" });
+  }
+
   return (
     <CitiesContext.Provider
       value={{
@@ -151,6 +165,7 @@ function CitiesProvider({ children }) {
         getCity,
         createCity,
         deleteCity,
+        resetCities,
         error,
       }}
     >

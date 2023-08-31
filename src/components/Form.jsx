@@ -8,6 +8,7 @@ import BackButton from "./BackButton";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import { useAuth } from "../contexts/AuthContext";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useCities } from "../contexts/CitiesContext";
@@ -25,6 +26,8 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const [lat, lng] = useUrlPosition();
+  const { session } = useAuth();
+  const user_id = session?.user?.id;
   const { createCity, isLoading } = useCities();
   const navigate = useNavigate();
 
@@ -73,6 +76,8 @@ function Form() {
 
     if (!cityName || !date) return;
 
+    console.log(user_id);
+
     const newCity = {
       cityName,
       country,
@@ -80,6 +85,7 @@ function Form() {
       date,
       notes,
       position: { lat, lng },
+      user_id,
     };
 
     await createCity(newCity);

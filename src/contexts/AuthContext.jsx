@@ -8,6 +8,7 @@ function AuthProvider({ children }) {
   const isAuthenticated = session?.user?.role === "authenticated";
 
   async function signOut() {
+    setSession(null);
     const { error } = await supabase.auth.signOut();
     if (error) console.log(error);
   }

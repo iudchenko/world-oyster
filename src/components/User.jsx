@@ -1,23 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import styles from "./User.module.css";
-
-// const FAKE_USER = {
-//   name: "Jack",
-//   email: "jack@example.com",
-//   password: "qwerty",
-//   avatar: "https://i.pravatar.cc/100?u=zz",
-// };
+import { useCities } from "../contexts/CitiesContext";
 
 function User() {
-  const navigate = useNavigate();
+  const { resetCities } = useCities();
   const {
     session: { user },
     signOut,
   } = useAuth();
+  const navigate = useNavigate();
+
   if (!user) return;
 
-  function handleClick() {
+  function handleLogout() {
+    resetCities();
     signOut();
     navigate("/");
   }
@@ -26,7 +23,7 @@ function User() {
     <div className={styles.user}>
       {/* <img src={user.avatar} alt={user.name} /> */}
       <span>Logged in as: {user.email}</span>
-      <button onClick={handleClick}>Logout</button>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }
