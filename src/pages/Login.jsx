@@ -47,6 +47,14 @@ export default function Login() {
               },
             }}
             providers={[]}
+            localization={{
+              variables: {
+                sign_in: {
+                  email_label: "Your email address. Demo: test@test.com",
+                  password_label: "Your strong password. Demo: testtest",
+                },
+              },
+            }}
           />
         </div>
       </main>

@@ -136,15 +136,15 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      const { error } = await deleteCityRow(id);
+      await deleteCityRow(id);
 
-      if (!error) {
-        dispatch({
-          type: "city/deleted",
-          payload: id,
-        });
-      }
+      dispatch({
+        type: "city/deleted",
+        payload: id,
+      });
+      console.log("city deleted");
     } catch (error) {
+      console.log(error);
       dispatch({
         type: "rejected",
         payload: "There was an error deleting city",
