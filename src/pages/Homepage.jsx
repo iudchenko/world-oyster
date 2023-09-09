@@ -13,9 +13,9 @@ export default function Homepage() {
           Keep track of your adventures.
         </h1>
         <h2>
-          A global map that traces your journey to countless cities. Always
-          remember your amazing adventures and display to your companions the
-          extent of your global exploration.
+          An interactive world map that records your travels to countless
+          cities, helping you cherish your incredible adventures and share the
+          scope of your global exploration with friends and fellow travelers.
         </h2>
 
         <Link to="/login" className="cta">
